@@ -1,4 +1,4 @@
-(function($) {
+(function ($) {
 
     var csscls = PhpDebugBar.utils.makecsscls('phpdebugbar-widgets-');
 
@@ -12,10 +12,10 @@
 
         className: csscls('templates'),
 
-        render: function() {
+        render: function () {
             this.$status = $('<div />').addClass(csscls('status')).appendTo(this.$el);
 
-            this.$list = new  PhpDebugBar.Widgets.ListWidget({ itemRenderer: function(li, tpl) {
+            this.$list = new  PhpDebugBar.Widgets.ListWidget({ itemRenderer: function (li, tpl) {
                 $('<span />').addClass(csscls('name')).text(tpl.name).appendTo(li);
 
                 if (typeof tpl.editorLink !== 'undefined' && tpl.editorLink !== null) {
@@ -55,7 +55,7 @@
                             '"><pre><code>' + tpl.params[key] + '</code></pre></td></tr>');
                         }
                     }
-                    li.css('cursor', 'pointer').click(function() {
+                    li.css('cursor', 'pointer').click(function () {
                         if (table.is(':visible')) {
                             table.hide();
                         } else {
@@ -67,7 +67,7 @@
             this.$list.$el.appendTo(this.$el);
             this.$callgraph = $('<div />').addClass(csscls('callgraph')).appendTo(this.$el);
 
-            this.bindAttr('data', function(data) {
+            this.bindAttr('data', function (data) {
                 this.$list.set('data', data.templates);
                 this.$status.empty();
                 this.$callgraph.empty();
